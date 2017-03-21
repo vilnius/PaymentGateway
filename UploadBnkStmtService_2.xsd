@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://gd013.vms.lt/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://gd013.vms.lt/">
+
+<xs:element name="Response">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Status" type="xs:string"/>
+<xs:element name="StatementId" type="xs:integer" minOccurs="0"/>
+<xs:element name="Errors" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ErrorMessage" type="tns:ErrorMessage" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="Statement">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="StmtHeader" type="tns:StmtHeader"/>
+<xs:element name="StmtLines" type="tns:StmtLine" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="StmtHeader">
+<xs:sequence>
+<xs:element name="StatementNumber" type="xs:string"/>
+<xs:element name="IssuerId" type="xs:integer"/>
+<xs:element name="StatementDate" type="xs:date"/>
+<xs:element name="ControlEndBalance" type="xs:decimal"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="StmtLine">
+<xs:sequence>
+<xs:element name="TrxNumber" type="xs:string"/>
+<xs:element name="Amount" type="xs:decimal"/>
+<xs:element name="TrxText" type="xs:string" minOccurs="0"/>
+<xs:element name="InvoiceText" type="xs:string"/>
+<xs:element name="CustomerText" type="xs:string" minOccurs="0"/>
+<xs:element name="BibaCustomerCode" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ErrorMessage">
+<xs:sequence>
+<xs:element name="ErrorCode" type="xs:string"/>
+<xs:element name="ErrorDescription" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
