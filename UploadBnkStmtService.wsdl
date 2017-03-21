@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.gd013.vms.lt/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ws.gd013.vms.lt/" name="UploadBnkStmtService">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://ws.gd013.vms.lt/" schemaLocation="http://localhost:8081/BnkStmtWS/UploadBnkStmtService?xsd=1"/>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://gd013.vms.lt/" schemaLocation="http://localhost:8081/BnkStmtWS/UploadBnkStmtService?xsd=2"/>
+		</xsd:schema>
+	</types>
+	<message name="submitBnkStmt">
+		<part name="parameters" element="tns:submitBnkStmt"/>
+	</message>
+	<message name="submitBnkStmtResponse">
+		<part name="parameters" element="tns:submitBnkStmtResponse"/>
+	</message>
+	<portType name="UploadBnkStmtService">
+		<operation name="submitBnkStmt">
+			<input wsam:Action="http://ws.gd013.vms.lt/UploadBnkStmtService/submitBnkStmtRequest" message="tns:submitBnkStmt"/>
+			<output wsam:Action="http://ws.gd013.vms.lt/UploadBnkStmtService/submitBnkStmtResponse" message="tns:submitBnkStmtResponse"/>
+		</operation>
+	</portType>
+	<binding name="UploadBnkStmtServicePortBinding" type="tns:UploadBnkStmtService">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+		<operation name="submitBnkStmt">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="UploadBnkStmtService">
+		<port name="UploadBnkStmtServicePort" binding="tns:UploadBnkStmtServicePortBinding">
+			<soap:address location="http://localhost:8081/BnkStmtWS/UploadBnkStmtService"/>
+		</port>
+	</service>
+</definitions>
