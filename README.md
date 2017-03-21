@@ -5,7 +5,7 @@
 - Testinis kliento sertifikatas: kreiptis atviriduomenys@vilnius.lt
 
 +Papildoma informacija:+
-- Integracijoje naudojamas Mutual SSL autentifikacija. 
-- Pradiniam testavimui reikia kreiptis atviriduomenys@vilnius.lt, kad pateikti  sertifikatą. 
-- Vėlesniame etape reikalingas CSR failas tikram sertifikatui, detaliau žr. PDF failą. Sertifikatą reikia susiimportuoti į savo KeyStore ir kviečiant WS nurodyti jį.
+- Integracijoje naudojama Mutual SSL autentifikacija. 
+- Sertifikato pateikimui: pradiniam testavimui reikia kreiptis atviriduomenys@vilnius.lt 
+- Tikram sertifikatui: vėlesniame etape reikalingas CSR failas (detaliau žr. PDF failą). Sertifikatą reikia susiimportuoti į savo KeyStore ir kviečiant WS jį.nurodyti.
 - Papildomai reikalingas įmonės kodas, kuris bus įtrauktas į VMS apskaitos sistemos klasifikatorių registrą.
